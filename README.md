@@ -8,6 +8,7 @@ Here is a list of packages I have installed
 * pandas
 * ipython
 * jupyter
+* requests
 
 ## via pip
 * trio
