@@ -1,5 +1,7 @@
 FROM continuumio/miniconda:latest
 ADD ./env.yml /tmp/
-RUN conda env create -f=/tmp/env.yml -n pybase
 SHELL ["/bin/bash", "-c"]
-RUN source /opt/conda/bin/activate pybase && conda env list && pip install trio
+RUN conda create --name pybase
+RUN source /opt/conda/bin/activate pybase && conda install nomkl pandas ipython jupyter requests
+RUN source /opt/conda/bin/activate pybase && pip install trio 
+RUN source /opt/conda/bin/activate pybase && conda clean --all
